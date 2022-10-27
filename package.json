@@ -1,0 +1,24 @@
+{
+  "name": "gh-vue-cli",
+  "version": "1.0.0",
+  "description": "基于vue-cli 3的定制脚手架命令行工具",
+  "main": "index.js",
+  "bin": {
+    "gh-vuecli": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue-cli"
+  ],
+  "author": {
+    "name": "guohao",
+    "email": ""
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "execa": "^1.0.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "useConfigFiles": true,
+  "plugins": {
+    "@vue/cli-plugin-babel": {}
+  },
+  "cssPreprocessor": "less"
+}

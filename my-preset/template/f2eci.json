@@ -1,0 +1,8 @@
+{
+    "dist": "./dist",
+    "urlPrefix": "/",
+    "env": "dev",
+    "ignoreJsMin": true,
+    "ignoreCssMin": false, 
+    "yarn": true
+  }
