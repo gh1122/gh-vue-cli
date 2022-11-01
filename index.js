@@ -11,8 +11,9 @@ PS： 该命令必须放在第一行， 否者不会生效
 const path = require('path');
 const preset = path.resolve(__dirname, 'my-preset');
 
+//前端Node全局命令行开发工具利器——commander
 const program = require('commander');
-const execa = require('execa');
+const execa = require('execa'); //execa是可以调用shell和本地外部程序的javascript封装。会启动子进程执行。
 
 program
     .version(require('./package').version)
@@ -25,18 +26,21 @@ program
     .action(function (project) {
         let command = `vue create ${project} --preset ${preset}`;
         const child = execa.shell(command, {
-            stdio: 'inherit',
+            stdio: 'inherit', //子进程的stdio(标准输入输出) inherit ：继承父进程相关的stdio
         });
     });
 
 //除了专有的go命令，其他的命令都转交给vue-cli
-program.command('*').action(function () {
-    let command = process.argv.slice(2);
-    command.unshift('vue');
+program
+    .command('*')
+    .description('除了专有的go命令，其他的命令都转交给vue-cli')
+    .action(function () {
+        let command = process.argv.slice(2);
+        command.unshift('vue');
 
-    const child = execa.shell(command.join(' '), {
-        stdio: 'inherit',
+        const child = execa.shell(command.join(' '), {
+            stdio: 'inherit',
+        });
     });
-});
 
 program.parse(process.argv);
